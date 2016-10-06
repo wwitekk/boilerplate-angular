@@ -1,0 +1,19 @@
+<h1>F1 Winners</h1>
+<div class="filter">
+	<span>filter by: </span>
+	<a class="filter_item" ng-class="{active : lc.sortby == 'season'}" ng-click="lc.sort('season');">season</a>
+	<a class="filter_item" ng-class="{active : lc.sortby == 'driver.givenName'}" ng-click="lc.sort('driver.givenName');">first name</a>
+	<a class="filter_item" ng-class="{active : lc.sortby == 'driver.familyName'}" ng-click="lc.sort('driver.familyName');">last name</a>
+</div>
+<div class="loading" ng-show="lc.loading">
+	loading...
+</div>
+<ul class="front-list">
+	<li class="front-list_item" ng-repeat="item in lc.recentChampions | orderBy:lc.sortby:lc.reverse">
+		<a ng-href="#/season/{{item.season}}?w={{item.driver.code}}">
+			{{item.season}} |
+			{{item.driver.givenName}}
+			{{item.driver.familyName}}
+		</a>
+	</li>
+</ul>

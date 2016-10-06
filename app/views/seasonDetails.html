@@ -1,0 +1,10 @@
+<h1>Season {{dc.year}} races list</h1>
+<a class="back-btn" href="#/">&lsaquo;&nbsp;back</a>
+<section>
+	<div class="race_item" ng-repeat="item in dc.season"
+		ng-class="{highlight : item.driver.code == dc.winner}">
+		<h2>{{item.raceName}}</h2>
+		winner: <span class="race_item_name">{{item.driver.givenName}} {{item.driver.familyName}}</span>
+	</div>
+</section>
+<p ng-show="dc.season.length == 0" class="no-data">Hi.<br>Unfortunatelly we could not find the data you are interested in. <br> Please go to the <a href="#/">main page</a> and try again. <br>Good luck!</p>
